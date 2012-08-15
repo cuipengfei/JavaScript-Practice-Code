@@ -1,0 +1,22 @@
+<html>
+<head>
+    <title>fizz buzz</title>
+
+    <script type="text/javascript" src="FizzBuzz.js"></script>
+    <script type="text/javascript">
+        function showResult()
+        {
+            var number = document.getElementById('textBox').value;
+            var result = fizzBuzz(number);
+            document.getElementById('label').value=result;
+        }
+    </script>
+
+</head>
+
+<body>
+<input type="text" id="textBox"/>
+<input type="button" onclick="showResult();" id="btn" value="click me"/>
+<br>
+<input type="text" id="label"/>
+</body>
