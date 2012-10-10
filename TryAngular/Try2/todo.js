@@ -20,7 +20,7 @@ function TodoController($scope) {
 	};
 
 	$scope.archive = function() {
-		$scope.todos = getRemainingToDoItems;
+		$scope.todos = getRemainingToDoItems();
 	};
 
 	function getRemainingToDoItems() {
