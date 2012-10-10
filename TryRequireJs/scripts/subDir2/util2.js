@@ -1,3 +1,4 @@
+//util2 define一个module，返回一个包含两个function的json
 define(function(){
 	function util2AlertHelper(param){
 		alert(param);
