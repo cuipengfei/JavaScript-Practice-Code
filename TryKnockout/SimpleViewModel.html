@@ -1,0 +1,19 @@
+<html>
+	<head>
+		<title>try knockout</title>
+		<script type="text/javascript" src="knockout-latest.debug.js"></script>
+		<script type="text/javascript" src="SimpleViewModel.js"></script>
+	</head>
+	<body>
+		<p>First name: <label data-bind="text: firstName"/></p>
+		<p>Last name: <label data-bind="text: lastName"/></p>
+
+		<p>First name: <input data-bind="value: firstName" /></p>
+		<p>Last name: <input data-bind="value: lastName" /></p>
+
+		<p>Full name: <strong data-bind="text: fullName"></strong></p>
+
+		<button data-bind="click: capitalizeLastName">Go caps</button>
+		<button onclick="clickEventHandler()">apply data-binding</button>		
+	</body>
+</html>
