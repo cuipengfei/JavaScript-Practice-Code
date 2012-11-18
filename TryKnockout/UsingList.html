@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<title>using list</title>
+		<script type="text/javascript" src="knockout-latest.debug.js"></script>
+		<script type="text/javascript" src="UsingList.js"></script>
+	</head>
+	<body onload="onload()">
+		<h2>Your seat reservations (<span data-bind="text: seats().length"></span>)</h2>
+
+		<table>
+		    <thead>
+		        <tr>
+		            <th>Passenger name</th>
+		            <th>Meal</th>
+		            <th>Surcharge</th><th></th>
+		        </tr>
+		    </thead>
+		    <!-- Todo: Generate table body -->
+		    <tbody data-bind="foreach: seats">
+		    <tr>
+		        <td><input data-bind="value: name" /></td>
+		        <td><select data-bind="options: $root.availableMeals, value: meal, optionsText: 'mealName'"></select></td>
+		        <td data-bind="text: formattedPrice"></td>
+		        <td><a href="#" data-bind="click: $root.removeSeat">Remove</a></td>
+		    </tr>    
+		</tbody>
+		</table>
+
+		<button data-bind="click: addSeat, enable: seats().length < 5">Reserve another seat</button>
+
+		<h3 data-bind="visible: totalSurcharge() > 0">
+		    Total surcharge: $<span data-bind="text: totalSurcharge().toFixed(2)"></span>
+		</h3>
+				
+	</body>
+</html>
