@@ -1,0 +1,26 @@
+<html>
+	<head>
+		<title>QSP</title>
+		<script type="text/javascript" src="../knockout-latest.debug.js"></script>
+		<script type="text/javascript" src="Premium.js"></script>
+	</head>
+	<body onload="onload()">
+		<p>Your Premium is: 
+			<label data-bind="text: premium"/> dollars.
+		</p>
+		
+		<p>Discount: 
+			<input data-bind="value: discount,
+							  enable: noCampaignApplied"/>
+			<button data-bind="click: applyDiscount,
+							   enable: noCampaignApplied">apply discount</button>
+	 	</p>
+		
+		<p>Campaign: 
+			<select data-bind="options: campaignCodes, 
+							   value: selectedCampaignCode, 
+							   optionsText: 'campaignText',
+							   enable: noDiscountApplied"/>
+	 	</p>
+	</body>
+</html>
