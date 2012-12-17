@@ -1,0 +1,53 @@
+<meta charset="UTF-8">
+<html>
+<head>
+    <title>TW Books</title>
+    <script type="text/javascript" src="knockout-latest.debug.js"></script>
+    <script type="text/javascript" src="StringSimilarity.js"></script>
+    <script type="text/javascript" src="BooksData.js"></script>
+    <script type="text/javascript" src="Books.js"></script>
+    <style type="text/css" media="screen">
+        ul li {
+            display: inline;
+            list-style-type: none;
+            padding-right: 20px;
+        }
+
+        table {
+            border: 1px solid #ff9843;
+        }
+
+        table td {
+            border: 1px solid #ff8527;
+        }
+    </style>
+</head>
+<body onload="onload()">
+<h2>Which books are the most popular?</h2>
+<table>
+    <thead>
+    <tr>
+        <th>Book name</th>
+        <th>How many people bought this book?</th>
+        <th>Who bought this book?</th>
+    </tr>
+    </thead>
+
+    <tbody data-bind="foreach: groups">
+    <tr>
+        <td>
+            <ul data-bind="foreach: groupNames">
+                <li data-bind="text: groupName"></li>
+            </ul>
+        </td>
+        <td><label data-bind="text: groupItems.length"/></td>
+        <td>
+            <ul data-bind="foreach: groupItems">
+                <li data-bind="text: EmployeeName"></li>
+            </ul>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
