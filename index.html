@@ -1,91 +1,53 @@
-<!doctype html>
+<meta charset="UTF-8">
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Javascript-practice-code by cuipengfei</title>
-
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>Javascript-practice-code</h1>
-        <p>JS code</p>
-
-        <p class="view"><a href="https://github.com/cuipengfei/JavaScript-Practice-Code">View the Project on GitHub <small>cuipengfei/JavaScript-Practice-Code</small></a></p>
-
-
-        <ul>
-          <li><a href="https://github.com/cuipengfei/JavaScript-Practice-Code/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/cuipengfei/JavaScript-Practice-Code/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/cuipengfei/JavaScript-Practice-Code">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <p></p>
-    TW Books
+<head>
+    <title>TW Books</title>
+    <script type="text/javascript" src="knockout-latest.debug.js"></script>
+    <script type="text/javascript" src="StringSimilarity.js"></script>
+    <script type="text/javascript" src="BooksData.js"></script>
+    <script type="text/javascript" src="Books.js"></script>
+    <style type="text/css" media="screen">
         ul li {
             display: inline;
             list-style-type: none;
             padding-right: 20px;
-        }&lt;/p&gt;
+        }
 
-&lt;pre&gt;&lt;code&gt;    table {
-        border: 1px solid #ff9843;
-    }
+        table {
+            border: 1px solid #ff9843;
+        }
 
-    table td {
-        border: 1px solid #ff8527;
-    }
-&amp;lt;/style&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
+        table td {
+            border: 1px solid #ff8527;
+        }
+    </style>
+</head>
+<body onload="onload()">
+<h2>Which books are the most popular?</h2>
+<table>
+    <thead>
+    <tr>
+        <th>Book name</th>
+        <th>How many people bought this book?</th>
+        <th>Who bought this book?</th>
+    </tr>
+    </thead>
 
-&lt;p&gt;&lt;/head&gt;
-&lt;body onload="onload()"&gt;&lt;/p&gt;
-
-&lt;h2&gt;Which books are the most popular?&lt;/h2&gt;
-
-&lt;table&gt;
-    &lt;thead&gt;
-    &lt;tr&gt;
-        &lt;th&gt;Book name&lt;/th&gt;
-        &lt;th&gt;How many people bought this book?&lt;/th&gt;
-        &lt;th&gt;Who bought this book?&lt;/th&gt;
-    &lt;/tr&gt;
-    &lt;/thead&gt;
-
-    &lt;tbody data-bind="foreach: groups"&gt;
-    &lt;tr&gt;
-        &lt;td&gt;
-            &lt;ul data-bind="foreach: groupNames"&gt;
-                &lt;li data-bind="text: groupName"&gt;&lt;/li&gt;
-            &lt;/ul&gt;
-        &lt;/td&gt;
-        &lt;td&gt;&lt;label data-bind="text: groupItems.length"/&gt;&lt;/td&gt;
-        &lt;td&gt;
-            &lt;ul data-bind="foreach: groupItems"&gt;
-                &lt;li data-bind="text: EmployeeName"&gt;&lt;/li&gt;
-            &lt;/ul&gt;
-        &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;&lt;/body&gt;
-&lt;/html&gt;&lt;/p&gt;
-      </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/cuipengfei">cuipengfei</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
-    </div>
-    <script src="javascripts/scale.fix.js"></script>
-    
-  </body>
+    <tbody data-bind="foreach: groups">
+    <tr>
+        <td>
+            <ul data-bind="foreach: groupNames">
+                <li data-bind="text: groupName"></li>
+            </ul>
+        </td>
+        <td><label data-bind="text: groupItems.length"/></td>
+        <td>
+            <ul data-bind="foreach: groupItems">
+                <li data-bind="text: EmployeeName"></li>
+            </ul>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
 </html>
