@@ -13,7 +13,12 @@
     "content_scripts":[
         {
             "matches":["http://book.douban.com/subject/*"],
-            "js":["jQuery-1.8.2.js", "myScript.js" ]
+            "js":["jQuery-1.8.2.js",
+                "knockout-latest.debug.js",
+                "injecter.js",
+                "searchers.js",
+                "binder.js",
+                "launcher.js" ]
         }
     ],
 
