@@ -1,0 +1,27 @@
+{
+    "manifest_version":2,
+
+    "name":"EBook Price For DouBan",
+    "description":"This extension gets the price of a book when you are browsing DouBan.",
+    "version":"1.0",
+
+    "background":{
+        "persistent":false,
+        "page":"background.html"
+    },
+
+    "content_scripts":[
+        {
+            "matches":["http://book.douban.com/subject/*"],
+            "js":["jQuery-1.8.2.js", "myScript.js" ]
+        }
+    ],
+
+    "permissions":[
+        "http://book.duokan.com/"
+    ],
+
+    "page_action":{
+        "default_title":"EBook Price"
+    }
+}
