@@ -22,6 +22,8 @@
             "js":["jQuery-1.8.2.js",
                 "knockout-latest.debug.js",
                 "injecter.js",
+                "duokanSearcher.js",
+                "tangchaSearcher.js",
                 "searchers.js",
                 "binder.js",
                 "launcher.js" ]
@@ -29,7 +31,8 @@
     ],
 
     "permissions":[
-        "http://book.duokan.com/"
+        "http://book.duokan.com/",
+        "http://tangcha.tc/"
     ],
 
     "page_action":{
