@@ -7,7 +7,7 @@ function SearchResult(provider, price, url) {
 var searchers = [duokanSearcher, tangchaSearcher];
 
 function searchForEBooks() {
-    var searchResults = [];
+    var searchResults = ko.observableArray();
 
     var bookTitle = getTitle();
     var subhead = getSubHead();

@@ -3,7 +3,7 @@ var tangchaSearcher = {
         var tangchaSearchUrl = "http://tangcha.tc/books/search/" + title + ".jsd";
         var tangchaBookUrlTemplate = "http://tangcha.tc/";
 
-        $.ajax({url:tangchaSearchUrl, async:false, success:function (data) {
+        $.ajax({url:tangchaSearchUrl, async:true, success:function (data) {
             eval(data);
             var div = $(html);
             var firstMatch = div.find("a").filter(function (index, a) {
