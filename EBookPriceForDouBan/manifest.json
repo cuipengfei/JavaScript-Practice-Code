@@ -11,22 +11,22 @@
     },
 
     "icons":{
-        "16":"books16.gif",
-        "48":"books48.png",
-        "128":"books128.gif"
+        "16":"img/books16.gif",
+        "48":"img/books48.png",
+        "128":"img/books128.gif"
     },
 
     "content_scripts":[
         {
             "matches":["http://book.douban.com/subject/*"],
-            "js":["jQuery-1.8.2.js",
-                "knockout-latest.debug.js",
-                "injecter.js",
-                "duokanSearcher.js",
-                "tangchaSearcher.js",
-                "searchers.js",
-                "binder.js",
-                "launcher.js" ]
+            "js":["js/dependencies/jQuery-1.8.2.js",
+                "js/dependencies/knockout-latest.debug.js",
+                "js/injecter.js",
+                "js/searchers/duokanSearcher.js",
+                "js/searchers/tangchaSearcher.js",
+                "js/searchers.js",
+                "js/binder.js",
+                "js/launcher.js" ]
         }
     ],
 
@@ -37,7 +37,7 @@
 
     "page_action":{
         "default_icon":{
-            "38":"books38.jpg"
+            "38":"img/books38.jpg"
         },
         "default_title":"EBook Price"
     }

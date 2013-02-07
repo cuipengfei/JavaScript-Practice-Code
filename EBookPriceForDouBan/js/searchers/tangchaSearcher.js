@@ -15,7 +15,7 @@ var tangchaSearcher = {
                 var section = $(bookData);
                 var price = section.find(".book-purchase").text();
 
-                var tangchaSearchResult = new SearchResult("唐茶", price, bookUrl.replace(".jsd", ""));
+                var tangchaSearchResult = new SearchResult("唐茶", price.replace("¥", ""), bookUrl.replace(".jsd", ""));
                 searchResults.push(tangchaSearchResult);
             }});
         }});
