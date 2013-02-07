@@ -10,6 +10,12 @@
         "page":"background.html"
     },
 
+    "icons":{
+        "16":"books16.gif",
+        "48":"books48.png",
+        "128":"books128.gif"
+    },
+
     "content_scripts":[
         {
             "matches":["http://book.douban.com/subject/*"],
@@ -27,6 +33,9 @@
     ],
 
     "page_action":{
+        "default_icon":{
+            "38":"books38.jpg"
+        },
         "default_title":"EBook Price"
     }
 }
