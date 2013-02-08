@@ -1,5 +1,7 @@
 var tangchaSearcher = {
-    search:function (title, subhead, author, searchResults) {
+    search:function (searchParameter) {
+        var title = searchParameter.title;
+        var searchResults = searchParameter.searchResults;
         var tangchaSearchUrl = "http://tangcha.tc/books/search/" + title + ".jsd";
         var tangchaBookUrlTemplate = "http://tangcha.tc/";
 

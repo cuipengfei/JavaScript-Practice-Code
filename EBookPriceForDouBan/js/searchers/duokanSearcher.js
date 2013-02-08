@@ -1,5 +1,9 @@
 var duokanSearcher = {
-    search:function (title, subhead, author, searchResults) {
+    search:function (searchParameter) {
+        var title = searchParameter.title;
+        var author = searchParameter.author;
+        var searchResults = searchParameter.searchResults;
+
         var duokanSearchUrl = "http://book.duokan.com/store/v0/web/search?s="
             + title
             + (author.length > 0 ? " " + author : "");

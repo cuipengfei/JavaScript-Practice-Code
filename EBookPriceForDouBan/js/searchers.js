@@ -4,7 +4,7 @@ function SearchResult(provider, price, url) {
     this.description = provider + "： " + price + "元";
 }
 
-var searchers = [duokanSearcher, tangchaSearcher];
+var searchers = [duokanSearcher, tangchaSearcher, amazonSearcher];
 
 function searchForEBooks() {
     var searchResults = ko.observableArray();
@@ -12,33 +12,31 @@ function searchForEBooks() {
     var bookTitle = getTitle();
     var subhead = getSubHead();
     var author = getAuthor();
+    var isbn = getISBN();
 
     $.each(searchers, function (index, searcher) {
-        //we give all three parameters to every searcher, it's up to the searcher to decide whether to use them
+        //we give all parameters to every searcher, it's up to the searcher to decide whether to use them
         //or ignore them.
-        searcher.search(bookTitle, subhead, author, searchResults);
+        searcher.search(
+            {
+                title:bookTitle,
+                subhead:subhead,
+                author:author,
+                isbn:isbn,
+                searchResults:searchResults
+            });
     });
 
     return searchResults;
 }
 
 function getSubHead() {
-    var clonedDiv = $("#info").clone();
-    if (clonedDiv.text().indexOf("副标题") === -1) {
+    var div = $("#info");
+    if (div.text().indexOf("副标题") === -1) {
         return "";
     }
 
-    clonedDiv.children().remove();
-    var text = clonedDiv.text();
-
-    var textArray = text.split("\n");
-
-    var subHead = textArray.map(function (item) {
-        return item.trim();
-    }).filter(function (item) {
-            return item.length > 0;
-        })[0];
-
+    var subHead = getInfoTextArray()[0];
     return subHead === undefined ? "" : subHead;
 }
 
@@ -58,4 +56,20 @@ function getAuthor() {
 
     var authorNameEncoded = href.split("/")[2];
     return decodeURIComponent(authorNameEncoded ? authorNameEncoded : "");
+}
+
+function getISBN() {
+    var textArray = getInfoTextArray();
+    return textArray[textArray.length - 1];
+}
+
+function getInfoTextArray() {
+    var clonedDiv = $("#info").clone();
+    clonedDiv.children().remove();
+    var textArray = clonedDiv.text().split("\n");
+    return   textArray.map(function (text) {
+        return text.trim();
+    }).filter(function (text) {
+            return text.length > 0;
+        });
 }
