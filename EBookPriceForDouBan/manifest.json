@@ -25,6 +25,7 @@
                 "js/searchers/duokanSearcher.js",
                 "js/searchers/tangchaSearcher.js",
                 "js/searchers/amazonSearcher.js",
+                "js/searchers/taobaoSearcher.js",
                 "js/searchers.js",
                 "js/binder.js",
                 "js/launcher.js" ]
@@ -34,7 +35,8 @@
     "permissions":[
         "http://book.duokan.com/",
         "http://tangcha.tc/",
-        "http://www.amazon.cn/"
+        "http://www.amazon.cn/",
+        "http://shuzi.taobao.com/"
     ],
 
     "page_action":{

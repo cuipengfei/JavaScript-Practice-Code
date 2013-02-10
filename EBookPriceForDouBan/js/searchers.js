@@ -1,10 +1,10 @@
 function SearchResult(provider, price, url) {
     this.price = price;
     this.url = url;
-    this.description = provider + "： " + price + "元";
+    this.description = provider + "：" + price + "元";
 }
 
-var searchers = [duokanSearcher, tangchaSearcher, amazonSearcher];
+var searchers = [duokanSearcher, tangchaSearcher, amazonSearcher, taobaoSearcher];
 
 function searchForEBooks() {
     var searchResults = ko.observableArray();
