@@ -12,7 +12,7 @@ function searchForEBooks() {
     var searchResults = ko.observableArray();
 
     var bookTitle = getTitle();
-    var subhead = getSubHead();
+//    var subhead = getSubHead();
     var author = getAuthor();
     var isbn = getISBN();
 
@@ -22,7 +22,7 @@ function searchForEBooks() {
         searcher.search(
             {
                 title:bookTitle,
-                subhead:subhead,
+//                subhead:subhead,
                 author:author,
                 isbn:isbn,
                 searchResults:searchResults
