@@ -1,10 +1,12 @@
 function SearchResult(provider, price, url) {
+    this.provider = provider;
     this.price = price;
     this.url = url;
     this.description = provider + "：" + price + "元";
+    this.isPriceInNumber = !isNaN(price);
 }
 
-var searchers = [duokanSearcher, tangchaSearcher, amazonSearcher, taobaoSearcher];
+var searchers = [duokanSearcher, tangchaSearcher, amazonSearcher, taobaoSearcher, jingdongSearcher];
 
 function searchForEBooks() {
     var searchResults = ko.observableArray();
