@@ -38,7 +38,8 @@
         "http://tangcha.tc/",
         "http://www.amazon.cn/",
         "http://shuzi.taobao.com/",
-        "http://search.e.360buy.com/"
+        "http://search.e.360buy.com/",
+        "https://api.douban.com/"
     ],
 
     "page_action":{
