@@ -3,7 +3,7 @@
 
     "name":"EBook Price For DouBan",
     "description":"This extension gets the price of a book when you are browsing DouBan.",
-    "version":"1.0",
+    "version":"1.1",
 
     "background":{
         "persistent":false,
@@ -27,6 +27,7 @@
                 "js/searchers/amazonSearcher.js",
                 "js/searchers/taobaoSearcher.js",
                 "js/searchers/jingdongSearcher.js",
+                "js/searchers/dangdangSearcher.js",
                 "js/searchers.js",
                 "js/binder.js",
                 "js/launcher.js" ]
@@ -39,6 +40,7 @@
         "http://www.amazon.cn/",
         "http://shuzi.taobao.com/",
         "http://search.e.360buy.com/",
+        "http://searchb.dangdang.com/",
         "https://api.douban.com/"
     ],
 

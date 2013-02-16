@@ -6,7 +6,7 @@ function SearchResult(provider, price, url) {
     this.isPriceInNumber = !isNaN(price);
 }
 
-var searchers = [duokanSearcher, tangchaSearcher, amazonSearcher, taobaoSearcher, jingdongSearcher];
+var searchers = [duokanSearcher, tangchaSearcher, amazonSearcher, taobaoSearcher, jingdongSearcher, dangdangSearcher];
 
 function searchForEBooks() {
     var searchResults = ko.observableArray();
