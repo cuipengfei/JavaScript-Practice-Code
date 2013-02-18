@@ -3,7 +3,7 @@
 
     "name":"EBook Price For DouBan",
     "description":"This extension gets the price of a book when you are browsing DouBan.",
-    "version":"1.1",
+    "version":"1.11",
 
     "background":{
         "persistent":false,
