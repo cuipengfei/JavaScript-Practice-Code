@@ -1,8 +1,8 @@
-function SearchResult(provider, price, url) {
+function SearchResult(provider, price, url, currencyType) {
     this.provider = provider;
     this.price = price;
     this.url = url;
-    this.description = provider + "：" + price + "元";
+    this.description = provider + "：" + price + (currencyType ? currencyType : "元");
     this.isPriceInNumber = !isNaN(price);
 }
 
