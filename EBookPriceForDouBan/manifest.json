@@ -28,6 +28,7 @@
                 "js/searchers/taobaoSearcher.js",
                 "js/searchers/jingdongSearcher.js",
                 "js/searchers/dangdangSearcher.js",
+                "js/searchers/nookSearcher.js",
                 "js/searchers.js",
                 "js/binder.js",
                 "js/launcher.js" ]
@@ -42,6 +43,7 @@
         "http://shuzi.taobao.com/",
         "http://search.e.360buy.com/",
         "http://searchb.dangdang.com/",
+        "http://www.barnesandnoble.com/",
         "https://api.douban.com/"
     ],
 
