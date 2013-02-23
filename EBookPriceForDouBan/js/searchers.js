@@ -6,7 +6,16 @@ function SearchResult(provider, price, url, currencyType) {
     this.isPriceInNumber = !isNaN(price);
 }
 //todo: remove useless idx function params; fix nook problem when it has both paperbook and ebook.
-var searchers = [duokanSearcher, tangchaSearcher, amazonSearcher, taobaoSearcher, jingdongSearcher, dangdangSearcher, nookSearcher, koboSearcher];
+var searchers = [
+    duokanSearcher,
+    tangchaSearcher,
+    amazonSearcher,
+    taobaoSearcher,
+    jingdongSearcher,
+    dangdangSearcher,
+    nookSearcher,
+    koboSearcher
+];
 
 function searchForEBooks() {
     var searchResults = ko.observableArray();
