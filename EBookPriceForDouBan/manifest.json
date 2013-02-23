@@ -22,6 +22,7 @@
             "js":["js/dependencies/jQuery-1.8.2.js",
                 "js/dependencies/knockout-latest.debug.js",
                 "js/injecter.js",
+                "js/searchers/utils.js",
                 "js/searchers/duokanSearcher.js",
                 "js/searchers/tangchaSearcher.js",
                 "js/searchers/amazonSearcher.js",

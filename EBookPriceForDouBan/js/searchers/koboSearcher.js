@@ -1,8 +1,6 @@
 var koboSearcher = {
     search:function (searchParameter) {
         var searchResults = searchParameter.searchResults;
-        var title = searchParameter.title;
-        var author = searchParameter.author;
 
         function searchWithMatchingISBN(matchingISBN) {
             var koboSearchUrl = "http://www.kobobooks.com/search/search.html?q=" + matchingISBN;
@@ -22,22 +20,8 @@ var koboSearcher = {
             }});
         }
 
-        function getMatchingISBNsFromGoogle(title, author, callBack) {
-            var googleBookSearchUrl = "https://www.googleapis.com/books/v1/volumes?q=" + title + "+inauthor:" + author;
-            $.ajax({url:googleBookSearchUrl, async:true, success:function (googleResultJson) {
-                var matchingISBNs = googleResultJson.items.filter(function (item) {
-                    return item.volumeInfo.title === title;
-                }).map(function (item) {
-                        return item.volumeInfo.industryIdentifiers[1].identifier;
-                    });
-                if (matchingISBNs.length > 0) {
-                    $.each(matchingISBNs, function (idx, matchingISBN) {
-                        callBack(matchingISBN);
-                    });
-                }
-            }});
-        }
-
-        getMatchingISBNsFromGoogle(title, author, searchWithMatchingISBN);
+        //kobo only sells ebook, and different from amazon and nook, searching with the paper book's ISBN does not work with kobo
+        //so we have to find the paper book's counterpart from google and then seatch kobo
+        getMatchingISBNsFromGoogle(searchParameter.title, searchParameter.author, searchWithMatchingISBN);
     }
 };
