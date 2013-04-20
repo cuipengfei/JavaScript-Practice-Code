@@ -4,14 +4,14 @@ function onload() {
     var commonQuestionText = "几道题答不出？";
     var howDidItGo = "执行情况如何?";
 
-    var testGroup1应知应会 = new testGroup("应知应会", [
+    var testGroup1 = new testGroup("应知应会", [
         new testItem("相关法律法规", 5, 1, "几处答不出？"),
         new testItem("输气管道保护所有题目", 8, 2, commonQuestionText),
         new testItem("职责、工作标准", 4, 1, commonQuestionText),
         new testItem("清楚并掌握各自管辖区段的风险点、工作难点、预防预控重点", 8, 2, commonQuestionText),
         new testItem("熟悉辖区内管道设施分布情况、自然条件、社会情况", 5, 2, commonQuestionText)]);
 
-    var testGroup2管道保护宣传 = new testGroup("管道保护宣传", [
+    var testGroup2 = new testGroup("管道保护宣传", [
         new testItem("每月做宣传计划并上报", 2, 2, "是否做了宣传，是否到位？", true),
         new testItem("场站对管道沿线特殊人群进行专门宣传，有图片、有记录", 3, 3, "是否做了宣传，是否到位？", true),
         new testItem("每件宣传品有发放记录", 3, 0, howDidItGo, false, [
@@ -29,7 +29,7 @@ function onload() {
             new fault("没有发放慰问品", 1),
             new fault("记录不全", 1)])]);
 
-    var testGroup3长效机制 = new testGroup("长效机制建立情况", [
+    var testGroup3 = new testGroup("长效机制建立情况", [
         new testItem("场站每月向区（县）公安或当地派出所、安监部门汇报所辖段线路日常情况、联席制度情况并做好记录。", 4, 1, "每月的记录、图片，书面文件来往及回执。四项中缺了几项？"),
         new testItem("场站对违章等危及管道、管道附属设施安全的情况，及时向区（县）公安、当地派出所、安监等相关部门汇报、协调，并能及时配合协调解决、处理，做好长效机制建立记录", 4, 0, "执行情况如何？", false, [
             new fault("没有及时汇报", 2),
@@ -40,7 +40,7 @@ function onload() {
         new testItem("是否将辖区内管道位置信息，防汛、防恐、应急抢修等应急预案，联系方式及报警电话等告知辖区县、市级政府机构，与地方建立有效的应急联动机制。", 3, 1, "报送相关文件，回执签字，现场照片，三项中缺了几项？")
     ]);
 
-    var testGroup4管道周边工程管理 = new testGroup("管道周边工程管理", [
+    var testGroup4 = new testGroup("管道周边工程管理", [
         new testItem("场站每季度到县区相关部门收集一次管道周边工程施工信息、每月到乡镇相关部门收集一次管道周边工程施工信息，每周到村组收集一次管道周边工程施工信息，对信息落实专人进行跟踪。", 8, 2, "少收集或者没收集几次？"),
         new testItem("及时对管道周边工程施工现场进行管道位置的复测，设立临时标识，向第三方施工进行现场交底", 10, 0, howDidItGo, false, [
             new fault("没有联合现场勘查", 7),
@@ -75,10 +75,10 @@ function onload() {
 //        new testItem("场站每季度到县区相关部门收集一次管道周边工程施工信息、每月到乡镇相关部门收集一次管道周边工程施工信息，每周到村组收集一次管道周边工程施工信息，对信息落实专人进行跟踪。", 8, 2, "少收集或者没收集几次？"),
 //    ]);
 
-    testGroups = [testGroup1应知应会,
-        testGroup2管道保护宣传,
-        testGroup3长效机制,
-        testGroup4管道周边工程管理];
+    testGroups = [testGroup1,
+        testGroup2,
+        testGroup3,
+        testGroup4];
 
     ko.observableArray(testGroups);
     ko.applyBindings({testGroups:testGroups});
