@@ -138,6 +138,25 @@ function onload() {
         new testItem("是否定期对管道本体属性数据、管道施工数据、管道检测数据、管道周边地理环境及人文数据、管道运行数据、管道走向图、附属设施等基础资料台帐，穿越、水库等潜在风险点台帐，盖板涵、盖板、管涵等设施台帐进行核实，发现与实际不符或内容不全的及时进行修正。", 5, 1, "发现几处与实际不符或遗漏？")
     ]);
 
+    var testGroup9 = new testGroup("防汛工作", [
+        new testItem("是否编制详细的防汛预案，防汛物资准备情况充足，满足抢险需要", 7, 0, howDidItGo, false, [
+            new fault("无防汛预案", 2),
+            new fault("无防汛物资管理台帐或者库存不符合", 2),
+            new fault("防汛物资消耗未及时上报补充", 3)
+        ]),
+        new testItem("汛情水毁是否及时上报，1立以下水毁是否监督巡线员及时处理", 5, 0, howDidItGo, false, [
+            new fault("查看汛期日报及水毁台帐，发现水毁未及时上报", 2),
+            new fault("发现1立一下小型水毁未及时处理", 3)
+        ]),
+        new testItem("是否建立水库、河流穿越台帐；汛期以后是否及时上线巡查，汛期掌握相关河流水文、降雨情况", 5, 0, howDidItGo, false, [
+            new fault("查看水库河流台帐，无台帐", 2),
+            new fault("内容不全", 1),
+            new fault("查看巡线日志，雨后未上线巡查", 1),
+            new fault("河流水文相关资料，无警戒水位、汛期排洪等相关资料", 1)
+        ]),
+        new testItem("是否与当地水利、防汛指挥部建立畅通的联系机制，并将防汛预案纳入地方抢险预案？", 3, 3, "", true)
+    ]);
+
     testGroups = [
         testGroup1,
         testGroup2,
@@ -146,7 +165,8 @@ function onload() {
         testGroup5,
         testGroup6,
         testGroup7,
-        testGroup8];
+        testGroup8,
+        testGroup9];
 
     ko.observableArray(testGroups);
     ko.applyBindings({testGroups:testGroups});
