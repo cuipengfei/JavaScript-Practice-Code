@@ -113,12 +113,40 @@ function onload() {
         ])
     ]);
 
-    testGroups = [testGroup1,
+    var testGroup7 = new testGroup("管道四桩一牌管理", [
+        new testItem("熟悉“四桩一牌”、人手井的设置情况，有图片、有档案，统计齐全，建立台帐，桩位准确率100%", 5, 0, howDidItGo, false, [
+            new fault("站队人员不能及时找到抽检的桩号位置", 2),
+            new fault("长时间找不到", 3)
+        ]),
+        new testItem("对“四桩一牌”的管理要落实到个人，及时上报“四桩一牌”缺失、移位、破损情况并建立台帐", 5, 1, "出现几处缺失、移位、损坏？"),
+        new testItem("场站对“四桩一牌”进行日常检查、简单维护，维护有台帐。", 5, 1, "几次没有进行日常维护？")
+    ]);
+
+    var testGroup8 = new testGroup("基础工作管理", [
+        new testItem("是否对管道管理各项法规、标准规范、程序文件、作业指导书进行有效分类和有效的集中控制", 4, 2, "查看各项法规、标准规范、程序文件、作业指导书存放位置，缺失或遗漏几次？"),
+        new testItem("周边工程管理、周边工程竣工资料、防洪防汛基础、管理处文件、现场监护资料、管道安全协议、宣传品发放记录、巡护人员资料、应急预案、沿线违章占压等资料齐全。", 4, 1, "几项缺少或不全？"),
+        new testItem("建立和不断完善水工设施台帐", 4, 0, howDidItGo, false, [
+            new fault("不完善", 2),
+            new fault("没有建立", 4)
+        ]),
+        new testItem("按要求在沿线各村设定信息员，建立信息员管理台帐，了解信息收集制度", 7, 0, howDidItGo, false, [
+            new fault("查看信息员管理台帐，电话沟通信息员了解信息收集情况，无台帐", 2),
+            new fault("超过1个月未收集信息", 3),
+            new fault("不了解信息管理制度", 2)
+        ]),
+        new testItem("是否按管理处要求上报管道相关工作总结、周报、月报、半年报、水毁日备案表", 6, 2, "缺少几次上报？"),
+        new testItem("是否定期对管道本体属性数据、管道施工数据、管道检测数据、管道周边地理环境及人文数据、管道运行数据、管道走向图、附属设施等基础资料台帐，穿越、水库等潜在风险点台帐，盖板涵、盖板、管涵等设施台帐进行核实，发现与实际不符或内容不全的及时进行修正。", 5, 1, "发现几处与实际不符或遗漏？")
+    ]);
+
+    testGroups = [
+        testGroup1,
         testGroup2,
         testGroup3,
         testGroup4,
         testGroup5,
-        testGroup6];
+        testGroup6,
+        testGroup7,
+        testGroup8];
 
     ko.observableArray(testGroups);
     ko.applyBindings({testGroups:testGroups});
