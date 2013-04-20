@@ -157,6 +157,18 @@ function onload() {
         new testItem("是否与当地水利、防汛指挥部建立畅通的联系机制，并将防汛预案纳入地方抢险预案？", 3, 3, "", true)
     ]);
 
+    var testGroup10 = new testGroup("员工培训", [
+        new testItem("是否及时参加管理处组织的（集中或自学等）管道完整性管理等专业培训，并建立站内管道管理人员管道完整性管理培训记录、台帐", 2, 2, "几次无记录？"),
+        new testItem("是否制定了巡线员年度、月度培训计划，并每月对巡线员进行管道保护知识培训", 4, 0, howDidItGo, false, [
+            new fault("发现无记录", 2),
+            new fault("发现作假", 2)
+        ]),
+        new testItem("是否对管理处组织的培训、每月组织的巡线员培训以及站内管道管理人员内部培训进行总结和效能评价，并将发现的问题和改进的建议写入总结", 4, 0, howDidItGo, false, [
+            new fault("发现无总结", 2),
+            new fault("发现总结内容过于形式化", 2)
+        ])
+    ]);
+
     testGroups = [
         testGroup1,
         testGroup2,
@@ -166,7 +178,8 @@ function onload() {
         testGroup6,
         testGroup7,
         testGroup8,
-        testGroup9];
+        testGroup9,
+        testGroup10];
 
     ko.observableArray(testGroups);
     ko.applyBindings({testGroups:testGroups});
