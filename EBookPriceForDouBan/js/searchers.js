@@ -23,18 +23,20 @@ function searchForEBooks() {
     var urlFragments = location.pathname.split("/");
     var bookID = urlFragments[urlFragments.length - 2];
 
-    $.ajax({url:"https://api.douban.com/v2/book/" + bookID, success:function (data) {
-        var jsonResult = data;
+    $.ajax({
+        url: "https://api.douban.com/v2/book/" + bookID, success: function (data) {
+            var jsonResult = data;
 
-        var bookTitle = jsonResult.title;
-        var author = jsonResult.author[0];
-        var isbn = jsonResult.isbn13;
+            var bookTitle = jsonResult.title;
+            var author = jsonResult.author[0];
+            var isbn = jsonResult.isbn13;
 
-        $.each(searchers, function (index, searcher) {
-            //we give all parameters to every searcher, it's up to the searcher to decide whether to use them or ignore them.
-            searcher.search({title:bookTitle, author:author, isbn:isbn, searchResults:searchResults});
-        });
-    }});
+            $.each(searchers, function (index, searcher) {
+                //we give all parameters to every searcher, it's up to the searcher to decide whether to use them or ignore them.
+                searcher.search({title: bookTitle, author: author, isbn: isbn, searchResults: searchResults});
+            });
+        }
+    });
 
     return searchResults;
 }

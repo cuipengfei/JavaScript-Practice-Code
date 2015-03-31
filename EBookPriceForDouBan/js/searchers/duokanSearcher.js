@@ -1,5 +1,5 @@
 var duokanSearcher = {
-    search:function (searchParameter) {
+    search: function (searchParameter) {
         var title = searchParameter.title;
         var author = searchParameter.author;
         var searchResults = searchParameter.searchResults;
@@ -9,16 +9,18 @@ var duokanSearcher = {
             + (author.length > 0 ? " " + author : "");
         var duokanBookUrlTemplate = "http://book.duokan.com/dkdetail.html?book_id=";
 
-        $.ajax({url:duokanSearchUrl, async:true, success:function (data) {
-            var response = $.parseJSON(data);
-            if (response.items.length > 0) {
-                var firstMatch = response.items[0];
-                var url = duokanBookUrlTemplate + firstMatch.book_id;
-                var price = firstMatch.new_price ? firstMatch.new_price : firstMatch.price;
+        $.ajax({
+            url: duokanSearchUrl, async: true, success: function (data) {
+                var response = $.parseJSON(data);
+                if (response.items.length > 0) {
+                    var firstMatch = response.items[0];
+                    var url = duokanBookUrlTemplate + firstMatch.book_id;
+                    var price = firstMatch.new_price ? firstMatch.new_price : firstMatch.price;
 
-                var duokanSearchResult = new SearchResult("多看阅读", price, url);
-                searchResults.push(duokanSearchResult);
+                    var duokanSearchResult = new SearchResult("多看阅读", price, url);
+                    searchResults.push(duokanSearchResult);
+                }
             }
-        }});
+        });
     }
 };
