@@ -17,14 +17,16 @@ var searchers = [
     koboSearcher
 ];
 
+function doubanBookId() {
+    var urlFragments = location.pathname.split("/");
+    return urlFragments[urlFragments.length - 2];
+}
+
 function searchForEBooks() {
     var searchResults = ko.observableArray();
 
-    var urlFragments = location.pathname.split("/");
-    var bookID = urlFragments[urlFragments.length - 2];
-
     $.ajax({
-        url: "https://api.douban.com/v2/book/" + bookID, success: function (data) {
+        url: "https://api.douban.com/v2/book/" + doubanBookId(), success: function (data) {
             var jsonResult = data;
 
             var bookTitle = jsonResult.title;
