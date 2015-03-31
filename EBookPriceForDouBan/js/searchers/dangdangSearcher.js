@@ -11,7 +11,7 @@ var dangdangSearcher = {
                 var notFound = page.find(".top_inforpanel");
                 if (notFound.length === 0) {
                     var url = page.find(".search_wrap").find("a").attr("href");
-                    var price = page.find(".search_now_price").text();
+                    var price = page.find(".search_now_price").text().replace("¥", "");
 
                     var dangdangSearchResult = new SearchResult("当当电子书", price, url);
                     searchResults.push(dangdangSearchResult);
