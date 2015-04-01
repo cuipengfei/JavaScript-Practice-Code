@@ -21,7 +21,7 @@ function injectEmptyTemplate() {
         '<div data-bind="with: searchResults">' +
         '<div data-bind="visible: length>0">' +
         '<li>支付宝扫码，打赏作者</li>' +
-        '<img src="https://tfsimg.alipay.com/images/mobilecodec/T1J3FfXbpsXXXXXXXX">' +
+        '<img style="width: 150px;" src="https://tfsimg.alipay.com/images/mobilecodec/T1J3FfXbpsXXXXXXXX">' +
         '</div>' +
         '</div>' +
         '</div>';
