@@ -20,15 +20,12 @@ var amazonSearcher = {
             $.ajax({
                 url: site.searchUrl, async: true, success: function (data) {
                     var page = $(data);
-                    var resultDiv = page.find("#result_0");
-                    var noResultsTitle = page.find("#noResultsTitle");
-                    if (resultDiv.length > 0 && noResultsTitle.length == 0) {
-                        var priceTag = $(resultDiv.find(".bld.lrg.red")[0]);
-                        var price = priceTag.text().replace("￥", "").replace("$", "");
-                        var url = resultDiv.find("a").attr("href");
-
-                        var amazonSearchResult = new SearchResult(site.name, price, url, site.currency);
-                        searchResults.push(amazonSearchResult);
+                    var resultsDiv = page.find("#resultsCol");
+                    var noResultsTip = page.find("#noResultsTitle");
+                    if (resultsDiv.length > 0 && noResultsTip.length == 0) {
+                        var price = resultsDiv.find(".a-color-price").first().text().replace("￥", "").replace("$", "");
+                        var url = resultsDiv.find(".s-access-detail-page").attr("href");
+                        searchResults.push(new SearchResult(site.name, price, url, site.currency));
                     }
                 }
             });
