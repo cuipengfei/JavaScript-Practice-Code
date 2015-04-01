@@ -18,10 +18,12 @@ function injectEmptyTemplate() {
         '</li>' +
 
         '</ul>' +
-        '<div data-bind="with: searchResults" data-bind="visible: length>0">' +
+        '<div data-bind="with: searchResults">' +
+        '<div data-bind="visible: length>0">' +
         '<li>支付宝扫码，打赏作者</li>' +
-        '<img src="https://tfsimg.alipay.com/images/mobilecodec/T1J3FfXbpsXXXXXXXX" style="width: 150px;">' +
-        '<div>' +
+        '<img src="https://tfsimg.alipay.com/images/mobilecodec/T1J3FfXbpsXXXXXXXX">' +
+        '</div>' +
+        '</div>' +
         '</div>';
 
     $(".gray_ad").first().append($(htmlTemplate));
