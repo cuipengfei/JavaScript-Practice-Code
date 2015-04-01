@@ -7,14 +7,13 @@ var duokanSearcher = {
         var duokanSearchUrl = "http://book.duokan.com/store/v0/web/search?s="
             + title
             + (author.length > 0 ? " " + author : "");
-        var duokanBookUrlTemplate = "http://book.duokan.com/dkdetail.html?book_id=";
+        var duokanBookUrlTemplate = "http://www.duokan.com/book/";
 
         $.ajax({
-            url: duokanSearchUrl, async: true, success: function (data) {
-                var response = $.parseJSON(data);
+            url: duokanSearchUrl, async: true, success: function (response) {
                 if (response.items.length > 0) {
                     var firstMatch = response.items[0];
-                    var url = duokanBookUrlTemplate + firstMatch.book_id;
+                    var url = duokanBookUrlTemplate + firstMatch.sid;
                     var price = firstMatch.new_price ? firstMatch.new_price : firstMatch.price;
 
                     var duokanSearchResult = new SearchResult("多看阅读", price, url);
