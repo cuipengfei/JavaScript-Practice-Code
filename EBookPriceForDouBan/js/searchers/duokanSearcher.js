@@ -14,7 +14,7 @@ var duokanSearcher = {
                 if (response.items.length > 0) {
                     var firstMatch = response.items[0];
                     var url = duokanBookUrlTemplate + firstMatch.sid;
-                    var price = firstMatch.new_price ? firstMatch.new_price : firstMatch.price;
+                    var price = firstMatch.new_price != undefined ? firstMatch.new_price : firstMatch.price;
 
                     var duokanSearchResult = new SearchResult("多看阅读", price, url);
                     searchResults.push(duokanSearchResult);
