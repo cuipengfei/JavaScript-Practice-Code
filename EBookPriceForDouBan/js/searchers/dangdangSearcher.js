@@ -3,23 +3,30 @@ var dangdangSearcher = {
         var isbn = searchParameter.isbn;
         var searchResults = searchParameter.searchResults;
 
-        var dangdangSearchUrl = "http://search.dangdang.com/?key=" + isbn + "&category_path=98.00.00.00.00.00&type=98.00.00.00.00.00";
+        var url = "http://search.dangdang.com/?key=" + isbn + "&category_path=98.00.00.00.00.00&type=98.00.00.00.00.00";
 
         $.ajax({
-            url: dangdangSearchUrl, async: true, success: function (data) {
+            url: url, async: true, success: function (data) {
                 var page = $(data);
-                var notFound = page.find(".no_result_tips");
-                if (notFound.length === 0) {
-                    var book = $(page.find(".bigimg").find("li").filter(function (idx, li) {
-                        return $(li).text().indexOf("试读本") == -1
-                    }).first());
-                    var url = book.find("a").attr("href");
-                    var price = book.find(".search_now_price").text().replace("¥", "");
-
-                    var dangdangSearchResult = new SearchResult("当当电子书", price, url);
-                    searchResults.push(dangdangSearchResult);
+                if (isFound(page)) {
+                    var book = parseBookFrom(page);
+                    searchResults.push(new SearchResult("当当电子书", book.price, book.url));
                 }
             }
         });
+
+        function parseBookFrom(page) {
+            var bookLi = $(page.find(".bigimg").find("li").filter(function (idx, li) {
+                return $(li).text().indexOf("试读本") == -1
+            }).first());
+            var url = bookLi.find("a").attr("href");
+            var price = bookLi.find(".search_now_price").text().replace("¥", "");
+            return {url: url, price: price};
+        }
+
+        function isFound(page) {
+            var notFound = page.find(".no_result_tips");
+            return notFound.length === 0;
+        }
     }
 };
