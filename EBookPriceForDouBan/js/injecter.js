@@ -14,5 +14,5 @@ function injectEmptyTemplate() {
         '</li>' +
         '</ul>';
 
-    $("#buyinfo-printed").append($(htmlTemplate));
+    $(".gray_ad").first().append($(htmlTemplate));
 }
