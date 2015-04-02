@@ -10,7 +10,7 @@ var searchers = [
     duokanSearcher,
     tangchaSearcher,
     amazonSearcher,
-    taobaoSearcher,
+    //taobaoSearcher,//fuck taobao gbk
     jingdongSearcher,
     dangdangSearcher,
     nookSearcher,
