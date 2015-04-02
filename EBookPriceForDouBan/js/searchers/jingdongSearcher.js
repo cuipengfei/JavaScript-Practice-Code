@@ -3,18 +3,17 @@ var jingdongSearcher = {
         var isbn = searchParameter.isbn;
         var searchResults = searchParameter.searchResults;
 
-        var jingdongSearchUrl = "http://search.e.360buy.com/searchDigitalBookAjax?ajaxSearch=1&key=" + isbn;
+        var jingdongSearchUrl = "http://search.e.jd.com/searchDigitalBookAjax?ajaxSearch=1&key=" + isbn;
 
         $.ajax({
-            url: jingdongSearchUrl, async: true, dataType: "json", success: function (data) {
-                if (data) {
-                    var jsonResult = data;
+            url: jingdongSearchUrl, async: true, dataType: "json", success: function (jsonResult) {
+                if (jsonResult) {
                     var wareID = jsonResult.Paragraph[0].wareid;
 
-                    var url = "http://e.360buy.com/" + wareID + ".html";
-                    var priceImageUrl = "http://price.360buyimg.com/gp" + wareID + ",1.png";
+                    var url = "http://e.jd.com/" + wareID + ".html";
+                    var price = jsonResult.Paragraph[0].hprice / 100;
 
-                    var jingdongSearchResult = new SearchResult("京东电子书", priceImageUrl, url);
+                    var jingdongSearchResult = new SearchResult("京东电子书", price, url);
                     searchResults.push(jingdongSearchResult);
                 }
             }
