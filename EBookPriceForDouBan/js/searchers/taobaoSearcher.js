@@ -1,9 +1,9 @@
 var taobaoSearcher = {
     search: function (searchParameter) {
-        var isbn = searchParameter.isbn;
+        var title = searchParameter.title;
         var searchResults = searchParameter.searchResults;
 
-        var taobaoSearchUrl = "http://shuzi.taobao.com/item/search.htm?q=" + isbn + "&isbook=ebook";
+        var taobaoSearchUrl = "http://shuzi.taobao.com/item/search.htm?q=" + encodeURIComponent(title) + "&isbook=ebook";
 
         $.ajax({
             url: taobaoSearchUrl, async: true, success: function (data) {
