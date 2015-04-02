@@ -16,9 +16,7 @@ var dangdangSearcher = {
         });
 
         function parseBookFrom(page) {
-            var bookLi = $(page.find(".bigimg").find("li").filter(function (idx, li) {
-                return $(li).text().indexOf("试读本") == -1
-            }).first());
+            var bookLi = $(page.find(".bigimg").find("li").first());
             var url = bookLi.find("a").attr("href");
             var price = bookLi.find(".search_now_price").text().replace("¥", "");
             return {url: url, price: price};
