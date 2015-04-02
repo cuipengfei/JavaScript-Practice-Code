@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
-  "name": "EBook Price For DouBan",
-  "description": "This extension gets the price of a book when you are browsing DouBan.",
+  "name": "豆瓣电子书比价",
+  "description": "本插件帮您在浏览豆瓣上的书目时找到该书的电子版（正版，需付费）。现支持多看，亚马逊，京东，亚马逊，当当。",
   "version": "1.12",
   "background": {
     "persistent": false,
